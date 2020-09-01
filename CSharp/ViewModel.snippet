@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    
+	
+	<CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>ViewModel class</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet to quickly define a view model class which implements NotifyPropertyChanged class.</Description>
+			<Shortcut>vmclass</Shortcut>
+        </Header>
+		
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>ViewModelName</ID>
+					<ToolTip>Enter the view model name</ToolTip>
+					<Default>ViewModelName</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[internal sealed class $ViewModelName$ : NotifyPropertyChanged
+        {
+            #region Constructors
+            public $ViewModelName$()
+            {
+
+            }
+            #endregion
+
+            #region Private fields
+
+            #endregion
+
+            #region Properties
+
+            #endregion
+
+            #region Commands
+
+            #endregion
+        }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

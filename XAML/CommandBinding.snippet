@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Command binding</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet to quickly define an InvokeCommandAction.</Description>
+			<Shortcut>invokecmd</Shortcut>
+        </Header>
+		
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>EventName</ID>
+					<ToolTip>Enter the event type</ToolTip>
+					<Default>EventName</Default>
+				</Literal>
+				<Literal>
+					<ID>CommandName</ID>
+					<ToolTip>Enter the command name</ToolTip>
+					<Default>Name</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="XAML">
+                <![CDATA[ <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="$EventName$">
+                    <behaviors:InvokeCommandAction Command="{Binding $CommandName$, Mode=OneWay}" PassEventArgsToCommand="True" />
+                </behaviors:EventTrigger>
+				</behaviors:Interaction.Triggers>]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

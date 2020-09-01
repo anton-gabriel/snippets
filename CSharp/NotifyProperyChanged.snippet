@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>NotifyPropertyChanged</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet for quickly implementation of INotifyPropertyChanged interface.</Description>
+			<Shortcut>notifypropertychanged</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[public class NotifyPropertyChanged : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+	
+	<CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>NotifyPropertyChanged property</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet to quickly define a property which emits property changed notifications.</Description>
+			<Shortcut>npc</Shortcut>
+        </Header>
+		
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>PropertyType</ID>
+					<ToolTip>Enter the property type</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<ToolTip>Enter the property name</ToolTip>
+					<Default>Name</Default>
+				</Literal>
+				<Literal>
+					<ID>FieldName</ID>
+					<ToolTip>Enter the field name</ToolTip>
+					<Default>name</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[private $PropertyType$ $FieldName$;
+        public $PropertyType$ $PropertyName$
+        {
+            get => $FieldName$;
+            private set
+            {
+                $FieldName$ = value;
+                OnPropertyChanged();
+            }
+        }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

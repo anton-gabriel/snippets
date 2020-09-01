@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>RelayCommand</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet for quick implementation of ICommand interface.</Description>
+			<Shortcut>relaycommand</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[public class RelayCommand<T> : ICommand
+    {
+        #region Properties
+        public Predicate<T> CanExecuteDelegate { get; set; }
+        public Action<T> ExecuteDelegate { get; set; }
+        #endregion
+
+        #region Public methods
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+        #endregion
+
+        #region ICommand
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute(object parameter)
+        {
+            return CanExecuteDelegate == null || CanExecuteDelegate((T)parameter);
+        }
+        public void Execute(object parameter)
+        {
+            ExecuteDelegate((T)parameter);
+        }
+        #endregion
+    }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>RelayCommand Implementation</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet to quickly define a RelayCommand class with view model constructor.</Description>
+			<Shortcut>rcmdvm</Shortcut>
+        </Header>
+		
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>ClassName</ID>
+					<ToolTip>Enter the command name</ToolTip>
+					<Default>MyRelayCommand</Default>
+				</Literal>
+				<Literal>
+					<ID>ArgumentType</ID>
+					<ToolTip>Enter the command parameter type</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>ViewModelClassType</ID>
+					<ToolTip>Enter the command view model type</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>ViewModelClassName</ID>
+					<ToolTip>Enter the command view model parameter name</ToolTip>
+					<Default>name</Default>
+				</Literal>
+				<Literal>
+					<ID>CanExecuteMethod</ID>
+					<ToolTip>Enter the can execute command name</ToolTip>
+					<Default>CanExecuteMethod</Default>
+				</Literal>
+				<Literal>
+					<ID>ExecuteMethod</ID>
+					<ToolTip>Enter the execute command name</ToolTip>
+					<Default>ExecuteMethod</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[internal sealed class $ClassName$ : RelayCommand<$ArgumentType$>
+    {
+        #region Constructors
+        public $ClassName$($ViewModelClassType$ $ViewModelClassName$)
+        {
+            $ViewModelClassName$ = $ViewModelClassName$ ?? throw new System.ArgumentNullException(nameof($ViewModelClassName$));
+            CanExecuteDelegate = $CanExecuteMethod$;
+            ExecuteDelegate = $ExecuteMethod$;
+        }
+        #endregion
+
+        #region Properties
+        private $ViewModelClassType$ $ViewModelClassName$ { get; }
+        #endregion
+
+        #region Private fields
+		private bool $CanExecuteMethod$($ArgumentType$ args)
+        {
+            throw new NotImplementedException();
+        }
+        private void $ExecuteMethod$($ArgumentType$ args)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+    }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Simple RelayCommand Implementation</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet to quickly define a RelayCommand class.</Description>
+			<Shortcut>srcmd</Shortcut>
+        </Header>
+		
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>ClassName</ID>
+					<ToolTip>Enter the command name</ToolTip>
+					<Default>MyRelayCommand</Default>
+				</Literal>
+				<Literal>
+					<ID>ArgumentType</ID>
+					<ToolTip>Enter the command parameter type</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>CanExecuteMethod</ID>
+					<ToolTip>Enter the can execute command name</ToolTip>
+					<Default>CanExecuteMethod</Default>
+				</Literal>
+				<Literal>
+					<ID>ExecuteMethod</ID>
+					<ToolTip>Enter the execute command name</ToolTip>
+					<Default>ExecuteMethod</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[internal sealed class $ClassName$ : RelayCommand<$ArgumentType$>
+    {
+        #region Constructors
+        public $ClassName$()
+        {
+            CanExecuteDelegate = $CanExecuteMethod$;
+            ExecuteDelegate = $ExecuteMethod$;
+        }
+        #endregion
+
+        #region Private fields
+		private bool $CanExecuteMethod$($ArgumentType$ args)
+        {
+            throw new NotImplementedException();
+        }
+        private void $ExecuteMethod$($ArgumentType$ args)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+    }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
