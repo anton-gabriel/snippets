@@ -166,4 +166,36 @@
             </Code>
         </Snippet>
     </CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Property command snippet</Title>
+			<Author>Anton Gabriel</Author>
+			<Description>Snippet to quickly define a property command.</Description>
+			<Shortcut>cmdprop</Shortcut>
+        </Header>
+		
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>commandName</ID>
+					<ToolTip>Enter the command field name</ToolTip>
+					<Default>commandName</Default>
+				</Literal>
+				<Literal>
+					<ID>CommandName</ID>
+					<ToolTip>Enter the command property type</ToolTip>
+					<Default>CommandName</Default>
+				</Literal>
+				<Literal>
+					<ID>CommandClass</ID>
+					<ToolTip>Enter the command class name</ToolTip>
+					<Default>CommandClass</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[ private ICommand $commandName$;
+        public ICommand $CommandName$ => $commandName$ ?? ($commandName$ = new $CommandClass$());]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
 </CodeSnippets>
