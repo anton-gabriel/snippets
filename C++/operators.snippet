@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
 			<Title>Assignment operator</Title>
-			<Shortcut>operator=</Shortcut>
+			<Shortcut>eqop</Shortcut>
 			<Description>Code snippet for assignment operator</Description>
 			<Author>Anton Gabriel</Author>
 			<SnippetTypes>
@@ -14,28 +15,65 @@
 			<Declarations>
 				<Literal>
 					<ID>T</ID>
-					<ToolTip>Class name</ToolTip>
-					<Default>Type</Default>
+					<ToolTip>Class type</ToolTip>
+					<Default>FirstType</Default>
+				</Literal>
+				<Literal>
+					<ID>V</ID>
+					<ToolTip>Class type</ToolTip>
+					<Default>SecondType</Default>
 				</Literal>
 			</Declarations>
-			<Code Language="cpp"><![CDATA[class $name$
-				{
-				public:
-					$name$();
-					~$name$();
+			<Code Language="cpp"><![CDATA[$T$& operator =(const $V$& other);]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
 
-				private:
-					$selected$$end$
-				};
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>In operator</Title>
+			<Shortcut>inop</Shortcut>
+			<Description>Code snippet for in operator</Description>
+			<Author>Anton Gabriel</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>T</ID>
+					<ToolTip>Class type</ToolTip>
+					<Default>FirstType</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[friend std::istream &operator>>(std::istream &input, $T$ &data);]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
 
-				$name$::$name$()
-				{
-				}
-
-				$name$::~$name$()
-				{
-				}]]>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Out operator</Title>
+			<Shortcut>outop</Shortcut>
+			<Description>Code snippet for out operator</Description>
+			<Author>Anton Gabriel</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>T</ID>
+					<ToolTip>Class type</ToolTip>
+					<Default>FirstType</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[friend std::ostream &operator<<(std::ostream &output, const $T$ &data);]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>
 </CodeSnippets>
+
+

@@ -113,8 +113,8 @@ public:
   T& operator,(V& other);
 
 public:
-  friend ostream &operator<<(ostream &output, const T &data);
-  friend istream &operator>>(istream &input, T &data);
+  friend std::ostream &operator<<(std::ostream &output, const T &data);
+  friend std::istream &operator>>(std::istream &input, T &data);
 };
 
 //assignment

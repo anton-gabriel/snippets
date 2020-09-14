@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Make unique pointer</Title>
+			<Shortcut>makeunique</Shortcut>
+			<Description>Code snippet for make_unique function call</Description>
+			<Author>Anton Gabriel</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>T</ID>
+					<ToolTip>Type</ToolTip>
+					<Default>Type</Default>
+				</Literal>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Name</ToolTip>
+					<Default>name</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[auto $name$ = std::make_unique<$T$>();]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+	
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Make shared pointer</Title>
+			<Shortcut>makeshared</Shortcut>
+			<Description>Code snippet for make_shared function call</Description>
+			<Author>Anton Gabriel</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>T</ID>
+					<ToolTip>Type</ToolTip>
+					<Default>Type</Default>
+				</Literal>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Name</ToolTip>
+					<Default>name</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[auto $name$ = std::make_shared<$T$>();]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+	
+</CodeSnippets>
+
+
