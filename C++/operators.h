@@ -111,6 +111,10 @@ public:
   T operator()(V& first, V& second, ...);
   //comma
   T& operator,(V& other);
+
+public:
+  friend ostream &operator<<(ostream &output, const T &data);
+  friend istream &operator>>(istream &input, T &data);
 };
 
 //assignment
