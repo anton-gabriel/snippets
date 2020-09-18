@@ -1,0 +1,6 @@
+https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid
+https://marketplace.visualstudio.com/items?itemName=ShemeerNS.ColorPicker
+https://marketplace.visualstudio.com/items?itemName=TeamXavalon.XAMLStyler
+https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.ProductivityPowerPack2017
+https://www.wholetomato.com/ - Visual Assist
+https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder
